@@ -37,4 +37,11 @@ if (process.env.NODE_ENV !== 'production') {
     });
 }
 
+else if (process.env.NODE_ENV !== 'production') {
+    router.get('/api/csrf/restore', (req, res) => {
+        res.cookie('XSRF-TOKEN-JSON', req.csrfToken());
+        res.status(201).json({});
+    });
+}
+
 module.exports = router;
